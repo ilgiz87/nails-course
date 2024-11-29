@@ -1,8 +1,13 @@
-@import
+@import 
+  'components/functions',
+  'components/mixins',
+  'components/breakpoints',
   'fonts',
-  'root',
-  'normalize',
-  'typography',
+  'variables',
+  'components/normalize',
+  'components/utils',
   'global';
 
-@import 'intro';
+@import
+  'blocks/intro',
+  'blocks/benefits';

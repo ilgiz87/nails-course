@@ -1,0 +1,44 @@
+@use "sass:math";
+
+@function strip-units($number) {
+  @if type-of($number)=='number' and not unitless($number) {
+    @return math.div($number, $number * 0 + 1);
+  }
+
+  @return $number;
+}
+
+// @function rounding($value, $exp: 100) {
+//   @return math.ceil(strip-units($value) * $exp) / $exp;
+// }
+
+// Округление
+@function rounding($value, $exp: 100) {
+  $stripUnitsNumber: strip-units($value);
+  @return math.div(math.ceil(calc($stripUnitsNumber * $exp)), $exp);
+}
+
+
+@function toRem($value) {
+  @return  #{rounding(math.div(strip-units($value), strip-units($baseFs)), 1000)}rem ;
+}
+
+
+@function clamp1($min, $max) {
+  $slope:  math.div($max - $min, $viewport-max - $viewport-min);
+  $yAxisIntersection:calc(((-1*$viewport-min) * $slope + $min)/$baseFs);
+
+  $clampMin: toRem($min);
+  $clampVal: calc( #{rounding(strip-units($yAxisIntersection), 1000)}rem + #{rounding($slope * 100)}vw);
+  $clampMax: toRem($max);
+
+  @return clamp($clampMin, $clampVal, $clampMax);
+}
+
+@function clamp2($min, $max) {
+  $clampMin: toRem($min);
+  $clampVal: calc(math.div(strip-units($max), strip-units($viewport-max)) * 100);
+  $clampMax: toRem($max);
+
+  @return clamp($clampMin, #{rounding($clampVal)}vw, $clampMax);
+}

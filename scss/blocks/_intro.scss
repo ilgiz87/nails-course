@@ -1,0 +1,161 @@
+/* intro */
+
+.intro {
+  position: relative;
+
+  @include media-lg {
+    --container-max-width: #{toRem(560px)};;
+  }
+  &__bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  &__container {
+    display: grid;
+    gap: var(--column-gap);
+    position: relative;
+
+    @include media-up-lg {
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 110px auto;
+    }
+  }
+
+  &__top {
+    display: grid;
+    grid-template-columns: repeat(2, 15em);
+    gap: var(--column-gap);
+
+    // max-height: 7em;
+    margin-inline-end: auto;
+    padding-block: 1.5em;
+
+    @include media-sm {
+      display: flex;
+      justify-content: space-evenly;
+      margin-inline-end: 0;
+    }
+
+  }
+
+  &__item {
+
+    font-size: clamp(0.625rem, 0.53rem + 0.4vw, 0.875rem);
+    background-color: rgba(desaturate(lighten($accent-color, 10%), 72%), .1);
+    padding: 1em;
+    border-radius: 1em;
+    display: grid;
+    column-gap: .8em;
+    grid-template-columns: 3em 1fr;
+    align-items: center;
+
+    &-icon {
+      background-color: #111;
+      padding: .2em;
+      border-radius: .2em;
+    }
+
+    @include media-sm {
+
+      &--video,
+      &--unlock {
+        flex-basis: 170px;
+      }
+    }
+
+
+    &--caps {
+      background-color: rgba(18, 16, 14, 0.3);
+      backdrop-filter: blur(25px);
+    }
+
+  }
+
+  &__title {
+    position: relative;
+    z-index: 1;
+
+    @include media-up-lg {
+      text-align: left;
+    }
+  }
+
+  &__text {
+    font-size: clamp(1rem, 0.91rem + 0.4vw, 1.25rem);
+    margin-bottom: 3.5em;
+    padding-right: .9em;
+    display: flex;
+    gap: var(--column-gap);
+    position: relative;
+    z-index: 1;
+
+    @include media-lg {
+      margin-bottom: 1.5em;
+      // padding-right: 0;
+    }
+
+    &::before {
+      content: url("data:image/svg+xml,%3Csvg width='46' height='30' viewBox='0 0 46 30' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='5' cy='15' r='5' fill='%23FED09C'/%3E%3Ccircle cx='23' cy='15' r='5' fill='%23FCF1E3'/%3E%3Ccircle cx='41' cy='15' r='5' fill='%23F5F0EB'/%3E%3C/svg%3E");
+      width: 46px;
+      height: 30px;
+
+      @include media-sm {
+        rotate: 90deg;
+        translate: 0px 10px;
+      }
+
+    }
+  }
+
+  &__img {
+    align-content: end;
+
+    @include media-up-lg {
+      position: relative;
+      grid-column: 2/3;
+      grid-row: 1/5;
+
+      img {
+        position: absolute;
+        bottom: 0;
+        right: -30px;
+        height: 100%;
+        max-width: none;
+      }
+
+    }
+  }
+
+  &__button-box {
+    display: flex;
+    gap: var(--column-gap);
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 60px;
+
+    @include media-lg {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      translate: -50% 14%;
+      margin: 0;
+      z-index: 2;
+      flex-direction: column-reverse;
+      align-items: center;
+    }
+  }
+
+  &__svg {
+    position: absolute;
+    bottom: -1px;
+
+    path {
+      fill: var(--body-bg-color);
+    }
+  }
+}

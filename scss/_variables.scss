@@ -1,0 +1,58 @@
+
+ // НЕ УДАЛЯТЬ используются в "_functions.scss" 
+ // для расчета  toRem() и clamp1($min, $max) 
+$baseFs: 16px; 
+$viewport-min: 360px; 
+$viewport-max: 1440px;
+
+$accent-color: #ffdfb9;
+
+
+/* root */
+:root {
+  --accent-color: #{ $accent-color};
+  --accent-light-color: #{lighten($accent-color, 8.25%)};
+  --accent-dark-color: #{desaturate(darken($accent-color, 55%), 72%)};
+  // --accent-dark-color: #{desaturate(darken($accent-color, 75%), 82%)};
+
+
+  // Эти переменные ОБЯЗАТЕЛЬНЫ используются в "_normalize.scss"
+  --transition-duration: .3s;
+
+  --body-text-color: #{desaturate(lighten($accent-color, 10%), 72%)};
+  --body-bg-color: #{desaturate(darken($accent-color, 80%), 85%)};
+  --body-font-family: 'Onest', sans-serif;
+  --body-font-weight: 400;
+  --body-font-size:  #{toRem(16px)};
+  --body-line-height: 1.5;
+
+  --heading-font-family: 'Druk-Cyr', sans-serif;
+  --heading-font-weight: 900;
+  --heading-line-height: 1.2;
+
+
+
+  --h1-font-size: #{clamp1( 40px, 80px)};
+
+  --h2-font-size: #{clamp1( 24px, 48px)};
+
+   --h3-font-size: #{clamp1( 18px, 24px)};
+  // --h4-font-size: 1.5rem;
+  // --h5-font-size: 1.25rem;
+  // --h6-font-size: 1rem;
+
+  // Эти переменные ОБЯЗАТЕЛЬНЫ используются в "_mixins.scss"
+  --column-gap: #{clamp1( 20px, 28px)};
+
+
+
+  // Эти переменные ОБЯЗАТЕЛЬНЫ используются в "_utils.scss"
+  --container-max-width: #{toRem(1264px)};
+  --container-padding-x: 1rem;
+
+  --section-padding-block: #{toRem(60px)};
+
+
+
+
+}

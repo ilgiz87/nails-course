@@ -1,0 +1,57 @@
+.section {
+  padding-block: var(--section-padding-block);
+
+  &__title {
+    margin-bottom: .5em;
+  }
+}
+
+.container {
+  max-width: var(--container-max-width);
+  padding-inline: var(--container-padding-x);
+  margin-inline: auto;
+}
+
+.button {
+  --btnColor: var(--accent-dark-color);
+  --btnBg: linear-gradient(48deg, var(--accent-color) 10%, var(--accent-light-color) 50%, var(--accent-color) 90%);
+  // --btnBorderColor: var(--btnBg);
+  // --btnBborderWidth:  clamp(1rem, 0.91rem + 0.4vw, 1.25rem);
+  // --btnBorderStyle: solid;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: 0.5em;
+  border-radius: toRem(40);
+  padding-block: 2em;
+  padding-inline: 3em;
+  font-size: toRem(14px);
+  font-weight: 700;
+  line-height: 1;
+  text-transform: uppercase;
+  color: var(--btnColor);
+  background: var(--btnBg);
+  // border: var(--btnBborderWidth) var(--btnBorderStyle) var(--btnBorderColor);
+  transition-duration: var(--transition-duration);
+  cursor: pointer;
+  text-decoration: none;
+  border-radius: 14px / 30%;
+  letter-spacing: 0.1em;
+  box-shadow: 0 .25em 0 0 var(--accent-dark-color);
+
+  @include hover {
+    // --btnColor: var(--black-color, #111);
+    --btnBg: linear-gradient(48deg, var(--accent-color) 10%, var(--accent-light-color) 50%, var(--accent-color) 90%);
+    // --btnBorderColor: var(--btnColor);
+  }
+
+}
+
+.accent-color {
+  color: var(--accent-color);
+}
+
+.accent-bg {
+  background-color: var(--accent-color);
+}

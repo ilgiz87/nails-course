@@ -1,0 +1,155 @@
+.benefits {
+  --container-max-width: 1200px;
+
+  &__top-content {
+    @include grid(2);
+
+    justify-items: center;
+    max-width: toRem(1000);
+    margin-inline: auto;
+    margin-bottom: var(--column-gap);
+    padding-top: 3.5rem;
+
+    @include media-lg {
+      max-width: toRem(870);
+    }
+  }
+
+  &__training {
+    @include dark-gradient(190);
+    //  background: linear-gradient(14deg, #333 0%, #121212 100%);
+
+    border-radius: toRem(32px);
+    padding-inline: toRem(32px);
+    padding-block: toRem(64px) toRem(32px);
+
+    position: relative;
+
+    &-heading {
+      width: 7em;
+      height: 3.5em;
+
+      background-color: var(--body-bg-color);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+
+      position: absolute;
+      top: 0;
+      left: 50%;
+      translate: -50% -50%;
+    }
+
+    &-img {
+      border-radius: toRem(16px);
+    }
+  }
+
+  &__bottom-content {
+    @include grid(6);
+
+    margin-bottom: var(--column-gap);
+  }
+
+  &__item {
+    //min-height: 200px;
+    --borderRadius: 20px;
+
+    @include dark-gradient(140);
+    //background: linear-gradient(140deg, #202020 0%, #121212 100%);
+
+    display: flex;
+    flex-direction: column;
+    row-gap: calc(var(--column-gap) / 2);
+    align-items: center;
+    padding: var(--column-gap) calc(var(--column-gap) * 2);
+
+    grid-column: span 2;
+
+    border-radius: var(--borderRadius);
+
+
+    @include media-lg {
+      grid-column: span 3;
+    }
+
+    &--first {
+      border-top-left-radius: calc(var(--column-gap) * 2) 85%;
+      @include media-lg {
+        border-top-left-radius: var(--column-gap) 85%;
+      }
+    }
+
+    &--penultimate,
+    &--last {
+      grid-column: span 3;
+    }
+
+    &--penultimate {
+      border-bottom-left-radius: calc(var(--column-gap) * 2) 85%;
+      @include media-lg {
+        border-bottom-left-radius: var(--column-gap) 85%;
+      }
+    }
+
+    &--last {
+      border-bottom-right-radius: calc(var(--column-gap) * 2) 85%;
+      @include media-lg {
+        border-bottom-right-radius: var(--column-gap) 85%;
+      }
+    }
+
+
+    @include media-up-lg {
+      &:nth-child(3) {
+        border-top-right-radius: calc(var(--column-gap) * 2) 85%;
+
+      }
+    }
+
+    @include media-lg {
+      &:nth-child(2) {
+        border-top-right-radius: var(--column-gap) 85%;
+
+      }
+    }
+
+  }
+
+  &__item-img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 110px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    border: 1px solid var(--accent-dark-color);
+
+    position: relative;
+
+    &:after {
+      @include abs-center;
+
+      content: "";
+      width: 80%;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background: var(--body-bg-color);
+    }
+
+    img {
+      z-index: 1;
+    }
+  }
+
+  &__item-text {
+    text-align: center;
+  }
+
+  &__button {
+    margin-inline: auto;
+    max-width: 320px;
+    display: flex;
+  }
+}
