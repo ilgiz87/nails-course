@@ -36,9 +36,6 @@
   --h4-font-size: 1.5rem;
   --h5-font-size: 1.25rem;
   --h6-font-size: 1rem;
-}
-
-:root {
   --accent-color: #ffdfb9;
   --accent-light-color: #fff2e3;
   --accent-dark-color: #665239;
@@ -543,6 +540,4 @@ label {
   margin-inline: auto;
   max-width: 320px;
   display: flex;
-}
-
-/*  footer  *//*# sourceMappingURL=main.css.map */
+}/*# sourceMappingURL=main.css.map */

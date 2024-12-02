@@ -9,9 +9,32 @@ $VIEWPORT-MIN: 360;
 // который расположен не последним среди своих соседних элементов 
 $PARAGRAPH_MARGIN_BOTTOM: toRem(24);
 
+// ===== BREAKPOINTS =====
+
+// Extra small
+$screen-xs: $VIEWPORT-MIN;
+
+// Small
+$screen-sm: 576;
+
+// Medium
+$screen-md: 768;
+
+// Large
+// $screen-lg: 992;
+$screen-lg: 960;
+
+// Extra large
+$screen-xl: 1200;
+
+// Extra extra large
+$screen-xxl: $VIEWPORT-MAX;
+
+// ===== BREAKPOINTS-END =====
+
 $accent-color: #ffdfb9;
 
-%normalize-root {
+@mixin normalize-root {
 
   --body-text-color: #{desaturate(lighten($accent-color, 10%), 72%)};
   --body-bg-color: #{desaturate(darken($accent-color, 80%), 85%)};
@@ -35,9 +58,8 @@ $accent-color: #ffdfb9;
 }
 
 
-
 :root {
-  @extend %normalize-root;
+  @include normalize-root;
 
   --accent-color: #{ $accent-color};
   --accent-light-color: #{lighten($accent-color, 8.25%)};
