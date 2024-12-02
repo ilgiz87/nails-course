@@ -1,3 +1,5 @@
+@use "variables";
+
 // Нормализация блочной модели
 %box-sizing {
   box-sizing: border-box;
@@ -100,7 +102,7 @@ h6 {
 // объявляем локальную переменную для внешнего отступа вниз,
 // чтобы избежать взаимодействие с более сложным селектором 
 p {
-  --paragraphMarginBottom: #{$PARAGRAPH_MARGIN_BOTTOM};
+  --paragraphMarginBottom: #{variables.$PARAGRAPH_MARGIN_BOTTOM};
 
   @extend %margin-block-0;
 

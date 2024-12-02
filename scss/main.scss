@@ -1,21 +1,14 @@
-@import
-   
-    'abstracts/mixins',
-    'abstracts/functions',
-    // 'abstracts/breakpoints',
-    'abstracts/fonts',
-    'abstracts/variables',
-    'abstracts/placeholders',
-    'abstracts/normalize';
+@use 'abstracts/mixins';
+@use 'abstracts/functions';
+@use 'abstracts/fonts';
+@use 'abstracts/variables';
+@use 'abstracts/placeholders';
+@use 'abstracts/normalize';
 
-@import 'components/buttons';
+@use 'components/buttons';
 
-@import
-    // 'layout/header',
-    'layout/intro',
-    'layout/benefits'
-    //'layout/footer'
-;
+@use 'layout/intro';
+@use 'layout/benefits';
 
 // Файл для эксперементов и костылей
-@import 'components/shame';
+@use 'components/shame';

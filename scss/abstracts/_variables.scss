@@ -1,3 +1,7 @@
+@use "sass:color";
+//@use "functions";
+@use "mixins";
+
 // НЕ УДАЛЯТЬ используются в "_functions.scss" 
 // для расчета  toRem() и clamp1($min, $max) 
 $BASE_FONT_SIZE: 16;
@@ -7,7 +11,7 @@ $VIEWPORT-MIN: 360;
 
 // Внешний отступ вниз для параграфа без атрибута class,
 // который расположен не последним среди своих соседних элементов 
-$PARAGRAPH_MARGIN_BOTTOM: toRem(24);
+$PARAGRAPH_MARGIN_BOTTOM: functions.toRem(24);
 
 // ===== BREAKPOINTS =====
 
@@ -36,11 +40,11 @@ $accent-color: #ffdfb9;
 
 @mixin normalize-root {
 
-  --body-text-color: #{desaturate(lighten($accent-color, 10%), 72%)};
-  --body-bg-color: #{desaturate(darken($accent-color, 80%), 85%)};
+  --body-text-color: #{color.adjust(color.adjust($accent-color, $lightness: 10%), $saturation: -72%)};
+  --body-bg-color: #{color.adjust(color.adjust($accent-color, $lightness: -80%), $saturation: -85%)};
   --body-font-family: 'Onest', sans-serif;
   --body-font-weight: 400;
-  --body-font-size: #{toRem(16)};
+  --body-font-size: #{functions.toRem(16)};
   --body-line-height: 1.5;
 
   // Общие стили для всех заголовков
@@ -49,12 +53,12 @@ $accent-color: #ffdfb9;
   --heading-line-height: 1.2;
 
   // Размеры заголовков h1-h6
-  --h1-font-size: #{clamp1(40, 80)};
-  --h2-font-size: #{clamp1(24, 48)};
-  --h3-font-size: #{clamp1(18, 24)};
-  --h4-font-size: #{toRem(24)};
-  --h5-font-size: #{toRem(20)};
-  --h6-font-size: #{toRem(16)};
+  --h1-font-size: #{functions.clamp1(40, 80)};
+  --h2-font-size: #{functions.clamp1(24, 48)};
+  --h3-font-size: #{functions.clamp1(18, 24)};
+  --h4-font-size: #{functions.toRem(24)};
+  --h5-font-size: #{functions.toRem(20)};
+  --h6-font-size: #{functions.toRem(16)};
 }
 
 
@@ -62,16 +66,16 @@ $accent-color: #ffdfb9;
   @include normalize-root;
 
   --accent-color: #{ $accent-color};
-  --accent-light-color: #{lighten($accent-color, 8.25%)};
-  --accent-dark-color: #{desaturate(darken($accent-color, 55%), 72%)};
+  --accent-light-color: #{color.adjust($accent-color, $lightness: 8.25%)};
+  --accent-dark-color: #{color.adjust(color.adjust($accent-color, $lightness: -55%), $saturation: -72%)};
 
-  --container-max-width: #{toRem(1264)};
+  --container-max-width: #{functions.toRem(1264)};
   --container-padding-x: 1rem;
 
   --column-gap: clamp(1.25rem, 1.07rem + 0.8vw, 1.75rem);
 
-  @include media-lg {
-    --container-max-width: #{toRem(560)};
+  @include mixins.media-lg {
+    --container-max-width: #{functions.toRem(560)};
 
   }
 }

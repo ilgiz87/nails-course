@@ -1,85 +1,89 @@
+@use "sass:color";
+@use "functions";
+@use "variables";
+
 @use 'sass:math';
 
 // ===== BREAKPOINTS =====
 @mixin media-up($screen-size) {
-  @media (min-width: #{toRem($screen-size)}) {
+  @media (min-width: #{functions.toRem($screen-size)}) {
     @content;
   }
 }
 
 @mixin media($screen-size) {
-  @media (max-width: #{toRem($screen-size - 0.02)}) {
+  @media (max-width: #{functions.toRem($screen-size - 0.02)}) {
     @content;
   }
 }
 @mixin media-up-xs {
-  @media (min-width: #{toRem($screen-xs)}) {
+  @media (min-width: #{functions.toRem(variables.$screen-xs)}) {
       @content;
   }
 }
 
 @mixin media-xs {
-  @media (max-width: #{toRem($screen-xs - 0.02)}) {
+  @media (max-width: #{functions.toRem(variables.$screen-xs - 0.02)}) {
       @content;
   }
 }
 
 @mixin media-up-sm {
-  @media (min-width: #{toRem($screen-sm)}) {
+  @media (min-width: #{functions.toRem(variables.$screen-sm)}) {
       @content;
   }
 }
 
 @mixin media-sm {
-  @media (max-width: #{toRem($screen-sm - 0.02)}) {
+  @media (max-width: #{functions.toRem(variables.$screen-sm - 0.02)}) {
       @content;
   }
 }
 
 @mixin media-up-md {
-  @media (min-width: #{toRem($screen-md )}) {
+  @media (min-width: #{functions.toRem(variables.$screen-md )}) {
       @content;
   }
 }
 
 @mixin media-md {
-  @media (max-width: #{toRem($screen-md - 0.02)}) {
+  @media (max-width: #{functions.toRem(variables.$screen-md - 0.02)}) {
       @content;
   }
 }
 
 @mixin media-up-lg {
-  @media (min-width: #{toRem($screen-lg )}) {
+  @media (min-width: #{functions.toRem(variables.$screen-lg )}) {
       @content;
   }
 }
 
 @mixin media-lg {
-  @media (max-width: #{toRem($screen-lg - 0.02)}) {
+  @media (max-width: #{functions.toRem(variables.$screen-lg - 0.02)}) {
       @content;
   }
 }
 
 @mixin media-up-xl {
-  @media (min-width: #{toRem($screen-xl )}) {
+  @media (min-width: #{functions.toRem(variables.$screen-xl )}) {
       @content;
   }
 }
 
 @mixin media-xl {
-  @media (max-width: #{toRem($screen-xl - 0.02)}) {
+  @media (max-width: #{functions.toRem(variables.$screen-xl - 0.02)}) {
       @content;
   }
 }
 
 @mixin media-up-xxl {
-  @media (min-width: #{toRem($screen-xxl)} ) {
+  @media (min-width: #{functions.toRem(variables.$screen-xxl)} ) {
       @content;
   }
 }
 
 @mixin media-xxl {
-  @media (max-width: #{toRem($screen-xxl - 0.02)}) {
+  @media (max-width: #{functions.toRem(variables.$screen-xxl - 0.02)}) {
       @content;
   }
 }
@@ -95,7 +99,7 @@
 }
 
 @mixin fluid-text($max: 18, $min: 16) {
-  font-size: clamp1($max, $min);
+  font-size: functions.clamp1($max, $min);
 }
 
 @mixin button-reset {
@@ -129,7 +133,7 @@
 }
 
 @mixin dark-gradient($deg) {
-  --gradientStartColor: #{desaturate(darken($accent-color, 75%), 88%)};
+  --gradientStartColor: #{color.adjust(color.adjust(variables.$accent-color, $lightness: -75%), $saturation: -88%)};
   --gradientDeg: #{$deg}deg;
 
   background: linear-gradient(var(--gradientDeg), var(--gradientStartColor) 0%, var(--body-bg-color) 90%);

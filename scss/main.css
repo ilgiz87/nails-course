@@ -1,0 +1,24 @@
+/* Error: Module loop: this module is already being loaded.
+ *   ,--> abstracts\_variables.scss
+ * 3 | @use "mixins";
+ *   | ^^^^^^^^^^^^^ new load
+ *   '
+ *   ,--> main.scss
+ * 1 | @use 'abstracts/mixins';
+ *   | ======================= original load
+ *   '
+ *   abstracts\_variables.scss 3:1  @use
+ *   abstracts\_functions.scss 2:1  @use
+ *   abstracts\_mixins.scss 2:1     @use
+ *   main.scss 1:1                  root stylesheet */
+
+body::before {
+  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
+      "Droid Sans Mono", monospace, monospace;
+  white-space: pre;
+  display: block;
+  padding: 1em;
+  margin-bottom: 1em;
+  border-bottom: 2px solid black;
+  content: "Error: Module loop: this module is already being loaded.\a   \250c \2500 \2500 > abstracts\\_variables.scss\a 3 \2502  @use \"mixins\";\d\a   \2502  ^^^^^^^^^^^^^ new load\a   \2575 \a   \250c \2500 \2500 > main.scss\a 1 \2502  @use 'abstracts/mixins';\d\a   \2502  \2501 \2501 \2501 \2501 \2501 \2501 \2501 \2501 \2501 \2501 \2501 \2501 \2501 \2501 \2501 \2501 \2501 \2501 \2501 \2501 \2501 \2501 \2501  original load\a   \2575 \a   abstracts\\_variables.scss 3:1  @use\a   abstracts\\_functions.scss 2:1  @use\a   abstracts\\_mixins.scss 2:1     @use\a   main.scss 1:1                  root stylesheet";
+}

@@ -1,27 +1,30 @@
+@use "../abstracts/functions";
+@use "../abstracts/mixins";
+
 .benefits {
   --container-max-width: 1200px;
 
   &__top-content {
-    @include grid(2);
+    @include mixins.grid(2);
 
     justify-items: center;
-    max-width: toRem(1000);
+    max-width: functions.toRem(1000);
     margin-inline: auto;
     margin-bottom: var(--column-gap);
     padding-top: 3.5rem;
 
-    @include media-lg {
-      max-width: toRem(870);
+    @include mixins.media-lg {
+      max-width: functions.toRem(870);
     }
   }
 
   &__training {
-    @include dark-gradient(190);
+    @include mixins.dark-gradient(190);
     //  background: linear-gradient(14deg, #333 0%, #121212 100%);
 
-    border-radius: toRem(32);
-    padding-inline: toRem(32);
-    padding-block: toRem(64) toRem(32);
+    border-radius: functions.toRem(32);
+    padding-inline: functions.toRem(32);
+    padding-block: functions.toRem(64) functions.toRem(32);
 
     position: relative;
 
@@ -42,12 +45,12 @@
     }
 
     &-img {
-      border-radius: toRem(16);
+      border-radius: functions.toRem(16);
     }
   }
 
   &__bottom-content {
-    @include grid(6);
+    @include mixins.grid(6);
 
     margin-bottom: var(--column-gap);
   }
@@ -56,7 +59,7 @@
     //min-height: 200px;
     --borderRadius: 20px;
 
-    @include dark-gradient(140);
+    @include mixins.dark-gradient(140);
     //background: linear-gradient(140deg, #202020 0%, #121212 100%);
 
     display: flex;
@@ -70,13 +73,13 @@
     border-radius: var(--borderRadius);
 
 
-    @include media-lg {
+    @include mixins.media-lg {
       grid-column: span 3;
     }
 
     &--first {
       border-top-left-radius: calc(var(--column-gap) * 2) 85%;
-      @include media-lg {
+      @include mixins.media-lg {
         border-top-left-radius: var(--column-gap) 85%;
       }
     }
@@ -88,27 +91,27 @@
 
     &--penultimate {
       border-bottom-left-radius: calc(var(--column-gap) * 2) 85%;
-      @include media-lg {
+      @include mixins.media-lg {
         border-bottom-left-radius: var(--column-gap) 85%;
       }
     }
 
     &--last {
       border-bottom-right-radius: calc(var(--column-gap) * 2) 85%;
-      @include media-lg {
+      @include mixins.media-lg {
         border-bottom-right-radius: var(--column-gap) 85%;
       }
     }
 
 
-    @include media-up-lg {
+    @include mixins.media-up-lg {
       &:nth-child(3) {
         border-top-right-radius: calc(var(--column-gap) * 2) 85%;
 
       }
     }
 
-    @include media-lg {
+    @include mixins.media-lg {
       &:nth-child(2) {
         border-top-right-radius: var(--column-gap) 85%;
 
@@ -129,7 +132,7 @@
     position: relative;
 
     &:after {
-      @include abs-center;
+      @include mixins.abs-center;
 
       content: "";
       width: 80%;
