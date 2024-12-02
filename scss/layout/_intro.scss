@@ -4,7 +4,7 @@
   position: relative;
 
   @include media-lg {
-    --container-max-width: #{toRem(560px)};;
+    --container-max-width: #{toRem(560)};;
   }
   &__bg {
     position: absolute;
