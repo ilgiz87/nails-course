@@ -1,13 +1,19 @@
-@import 
-  'components/functions',
-  'components/mixins',
-  'components/breakpoints',
-  'fonts',
-  'variables',
-  'components/normalize',
-  'components/utils',
-  'global';
+@import
+    'abstracts/functions',
+    'abstracts/breakpoints',
+    'abstracts/mixins',
+    'abstracts/fonts',
+    'abstracts/variables',
+    'abstracts/placeholders',
+    'abstracts/normalize';
+
+@import 'components/buttons';
 
 @import
-  'blocks/intro',
-  'blocks/benefits';
+    // 'layout/header',
+    'layout/intro',
+    'layout/benefits',
+    'layout/footer';
+
+// Файл для эксперементов и костылей
+@import 'components/shame';

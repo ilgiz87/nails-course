@@ -19,9 +19,9 @@
     @include dark-gradient(190);
     //  background: linear-gradient(14deg, #333 0%, #121212 100%);
 
-    border-radius: toRem(32px);
-    padding-inline: toRem(32px);
-    padding-block: toRem(64px) toRem(32px);
+    border-radius: toRem(32);
+    padding-inline: toRem(32);
+    padding-block: toRem(64) toRem(32);
 
     position: relative;
 
@@ -42,7 +42,7 @@
     }
 
     &-img {
-      border-radius: toRem(16px);
+      border-radius: toRem(16);
     }
   }
 
