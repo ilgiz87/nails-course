@@ -1,7 +1,10 @@
+
 .benefits {
+
   --container-max-width: 1200px;
 
   &__top-content {
+
     @include grid(2);
 
     justify-items: center;
@@ -10,7 +13,7 @@
     margin-bottom: var(--column-gap);
     padding-top: 3.5rem;
 
-    @include media-lg {
+    @include  media-lg {
       max-width: toRem(870);
     }
   }
@@ -19,9 +22,9 @@
     @include dark-gradient(190);
     //  background: linear-gradient(14deg, #333 0%, #121212 100%);
 
-    border-radius: toRem(32px);
-    padding-inline: toRem(32px);
-    padding-block: toRem(64px) toRem(32px);
+    border-radius:  toRem(32);
+    padding-inline:  toRem(32);
+    padding-block: toRem(64)  toRem(32);
 
     position: relative;
 
@@ -42,7 +45,7 @@
     }
 
     &-img {
-      border-radius: toRem(16px);
+      border-radius: toRem(16);
     }
   }
 
@@ -70,13 +73,13 @@
     border-radius: var(--borderRadius);
 
 
-    @include media-lg {
+    @include  media-lg {
       grid-column: span 3;
     }
 
     &--first {
       border-top-left-radius: calc(var(--column-gap) * 2) 85%;
-      @include media-lg {
+      @include  media-lg {
         border-top-left-radius: var(--column-gap) 85%;
       }
     }
@@ -88,27 +91,27 @@
 
     &--penultimate {
       border-bottom-left-radius: calc(var(--column-gap) * 2) 85%;
-      @include media-lg {
+      @include  media-lg {
         border-bottom-left-radius: var(--column-gap) 85%;
       }
     }
 
     &--last {
       border-bottom-right-radius: calc(var(--column-gap) * 2) 85%;
-      @include media-lg {
+      @include  media-lg {
         border-bottom-right-radius: var(--column-gap) 85%;
       }
     }
 
 
-    @include media-up-lg {
+    @include  media-up-lg {
       &:nth-child(3) {
         border-top-right-radius: calc(var(--column-gap) * 2) 85%;
 
       }
     }
 
-    @include media-lg {
+    @include  media-lg {
       &:nth-child(2) {
         border-top-right-radius: var(--column-gap) 85%;
 

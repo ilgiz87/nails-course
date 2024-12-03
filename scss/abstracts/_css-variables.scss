@@ -1,0 +1,11 @@
+@use "sass:color";
+
+:root {
+    @include normalize-root();
+    --accent-color: #{ $accent-color};
+    --accent-light-color: #{color.adjust($accent-color, $lightness: 8.25%)};
+    --accent-dark-color: #{color.adjust(color.adjust($accent-color, $lightness: -55%), $saturation: -72%)};
+
+    --container-max-width: #{toRem($container-max-width)};
+    --container-padding-x: #{toRem($container-padding-x)};
+  }
