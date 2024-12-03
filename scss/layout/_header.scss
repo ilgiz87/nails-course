@@ -1,1 +1,8 @@
 /* header */
+.header{
+    &__social{
+        display: flex;
+        gap: 1rem;
+        margin-bottom: 0;   
+    }
+}

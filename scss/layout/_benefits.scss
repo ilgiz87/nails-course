@@ -1,10 +1,14 @@
+@use "../abstracts/breakpoints";
 @use "../abstracts/functions";
 @use "../abstracts/mixins";
 
+
 .benefits {
+
   --container-max-width: 1200px;
 
   &__top-content {
+
     @include mixins.grid(2);
 
     justify-items: center;
@@ -13,7 +17,7 @@
     margin-bottom: var(--column-gap);
     padding-top: 3.5rem;
 
-    @include mixins.media-lg {
+    @include  breakpoints.media-lg {
       max-width: functions.toRem(870);
     }
   }
@@ -22,9 +26,9 @@
     @include mixins.dark-gradient(190);
     //  background: linear-gradient(14deg, #333 0%, #121212 100%);
 
-    border-radius: functions.toRem(32);
-    padding-inline: functions.toRem(32);
-    padding-block: functions.toRem(64) functions.toRem(32);
+    border-radius:  functions.toRem(32);
+    padding-inline:  functions.toRem(32);
+    padding-block: functions.toRem(64)  functions.toRem(32);
 
     position: relative;
 
@@ -73,13 +77,13 @@
     border-radius: var(--borderRadius);
 
 
-    @include mixins.media-lg {
+    @include  breakpoints.media-lg {
       grid-column: span 3;
     }
 
     &--first {
       border-top-left-radius: calc(var(--column-gap) * 2) 85%;
-      @include mixins.media-lg {
+      @include  breakpoints.media-lg {
         border-top-left-radius: var(--column-gap) 85%;
       }
     }
@@ -91,27 +95,27 @@
 
     &--penultimate {
       border-bottom-left-radius: calc(var(--column-gap) * 2) 85%;
-      @include mixins.media-lg {
+      @include  breakpoints.media-lg {
         border-bottom-left-radius: var(--column-gap) 85%;
       }
     }
 
     &--last {
       border-bottom-right-radius: calc(var(--column-gap) * 2) 85%;
-      @include mixins.media-lg {
+      @include  breakpoints.media-lg {
         border-bottom-right-radius: var(--column-gap) 85%;
       }
     }
 
 
-    @include mixins.media-up-lg {
+    @include  breakpoints.media-up-lg {
       &:nth-child(3) {
         border-top-right-radius: calc(var(--column-gap) * 2) 85%;
 
       }
     }
 
-    @include mixins.media-lg {
+    @include  breakpoints.media-lg {
       &:nth-child(2) {
         border-top-right-radius: var(--column-gap) 85%;
 

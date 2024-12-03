@@ -1,5 +1,22 @@
-@use "functions";
-@use "mixins";
+
+
+// Нормализация блочной модели
+%box-sizing {
+  box-sizing: border-box;
+}
+
+// Плавный скролл
+%scroll-behavior {
+  scroll-behavior: smooth;
+}
+
+
+//  Упрощаем работу с изображениями
+%img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
 
 %margin-block-0 {
   margin-block: 0;
@@ -11,63 +28,4 @@
 
 %min-h100 {
   min-height: 100%;
-}
-
-.section {
-  padding-block: var(--section-padding-block);
-
-  &__title {
-    margin-bottom: .5em;
-  }
-}
-
-.container {
-  max-width: var(--container-max-width);
-  padding-inline: var(--container-padding-x);
-  margin-inline: auto;
-}
-
-.button {
-  --btnColor: var(--accent-dark-color);
-  --btnBg: linear-gradient(48deg, var(--accent-color) 10%, var(--accent-light-color) 50%, var(--accent-color) 90%);
-  // --btnBorderColor: var(--btnBg);
-  // --btnBborderWidth:  clamp(1rem, 0.91rem + 0.4vw, 1.25rem);
-  // --btnBorderStyle: solid;
-
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  column-gap: 0.5em;
-  border-radius: functions.toRem(40);
-  padding-block: 2em;
-  padding-inline: 3em;
-  font-size: functions.toRem(14);
-  font-weight: 700;
-  line-height: 1;
-  text-transform: uppercase;
-  color: var(--btnColor);
-  background: var(--btnBg);
-  // border: var(--btnBborderWidth) var(--btnBorderStyle) var(--btnBorderColor);
-  transition-duration: var(--transition-duration);
-  cursor: pointer;
-  text-decoration: none;
-  border-radius: 14px / 30%;
-  letter-spacing: 0.1em;
-  box-shadow: 0 .25em 0 0 var(--accent-dark-color);
-
-  @include mixins.hover {
-    // --btnColor: var(--black-color, #111);
-    --btnBg: linear-gradient(48deg, var(--accent-color) 10%, var(--accent-light-color) 50%, var(--accent-color) 90%);
-    // --btnBorderColor: var(--btnColor);
-  }
-
-}
-
-
-.accent-color {
-  color: var(--accent-color);
-}
-
-.accent-bg {
-  background-color: var(--accent-color);
 }

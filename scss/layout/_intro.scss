@@ -1,15 +1,16 @@
-@use "sass:color";
+@use "../abstracts/breakpoints";
 @use "../abstracts/functions";
-@use "../abstracts/mixins";
 @use "../abstracts/variables";
+
+@use "sass:color";
 
 /* intro */
 
 .intro {
   position: relative;
 
-  @include mixins.media-lg {
-    --container-max-width: #{functions.toRem(560)};;
+  @include  breakpoints.media-lg {
+    --container-max-width: #{ functions.toRem(560)};;
   }
   &__bg {
     position: absolute;
@@ -25,7 +26,7 @@
     gap: var(--column-gap);
     position: relative;
 
-    @include mixins.media-up-lg {
+    @include  breakpoints.media-up-lg {
       grid-template-columns: 1fr 1fr;
       grid-template-rows: 110px auto;
     }
@@ -40,7 +41,7 @@
     margin-inline-end: auto;
     padding-block: 1.5em;
 
-    @include mixins.media-sm {
+    @include  breakpoints.media-sm {
       display: flex;
       justify-content: space-evenly;
       margin-inline-end: 0;
@@ -51,7 +52,7 @@
   &__item {
 
     font-size: clamp(0.625rem, 0.53rem + 0.4vw, 0.875rem);
-    background-color: rgba(color.adjust(color.adjust(variables.$accent-color, $lightness: 10%), $saturation: -72%), .1);
+    background-color: rgba(color.adjust(color.adjust( variables.$accent-color, $lightness: 10%), $saturation: -72%), .1);
     padding: 1em;
     border-radius: 1em;
     display: grid;
@@ -65,7 +66,7 @@
       border-radius: .2em;
     }
 
-    @include mixins.media-sm {
+    @include  breakpoints.media-sm {
 
       &--video,
       &--unlock {
@@ -85,7 +86,7 @@
     position: relative;
     z-index: 1;
 
-    @include mixins.media-up-lg {
+    @include  breakpoints.media-up-lg {
       text-align: left;
     }
   }
@@ -99,7 +100,7 @@
     position: relative;
     z-index: 1;
 
-    @include mixins.media-lg {
+    @include  breakpoints.media-lg {
       margin-bottom: 1.5em;
       // padding-right: 0;
     }
@@ -109,7 +110,7 @@
       width: 46px;
       height: 30px;
 
-      @include mixins.media-sm {
+      @include  breakpoints.media-sm {
         rotate: 90deg;
         translate: 0px 10px;
       }
@@ -120,7 +121,7 @@
   &__img {
     align-content: end;
 
-    @include mixins.media-up-lg {
+    @include  breakpoints.media-up-lg {
       position: relative;
       grid-column: 2/3;
       grid-row: 1/5;
@@ -143,7 +144,7 @@
     justify-content: space-between;
     margin-bottom: 60px;
 
-    @include mixins.media-lg {
+    @include  breakpoints.media-lg {
       position: absolute;
       bottom: 0;
       left: 50%;

@@ -1,39 +1,30 @@
+@use "functions";
 @use "variables";
 
 // Нормализация блочной модели
-%box-sizing {
-  box-sizing: border-box;
-}
-
-// Плавный скролл
-%scroll-behavior {
-  scroll-behavior: smooth;
-}
-
-
-//  Упрощаем работу с изображениями
-%img {
-  display: block;
-  max-width: 100%;
-  height: auto;
-}
-
-// Нормализация блочной модели
-html,
-body {
-  min-height: 100%;
-  box-sizing: border-box;
-}
 
 *,
 *::before,
 *::after {
   box-sizing: inherit;
+
+  // Удаляем все анимации и переходы для людей,
+  // которые предпочитают их не использовать 
+  @media (prefers-reduced-motion: reduce) {
+
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+
+  }
 }
 
 html {
-  @extend %scroll-behavior;
+ @extend %box-sizing !optional;
+  @extend %scroll-behavior !optional;
 
+  min-height: 100%;
 
   // Убираем скачок интерфейса по горизонтали
   // при появлении / исчезновении скроллбара
@@ -42,9 +33,11 @@ html {
 
 
 body {
+ @extend %box-sizing !optional;
+  @extend %margin-block-0 !optional;
+  @extend %margin-inline-0 !optional;
 
-  @extend %margin-block-0;
-  @extend %margin-inline-0;
+  height: 100%;
 
   // Унифицированны размеры
   background-color: var(--body-bg-color);
@@ -62,9 +55,6 @@ body {
   font-weight: var(--heading-font-weight);
   line-height: var(--heading-line-height);
 
-  :where(&):where([class]) {
-    margin-block: 0;
-  }
 }
 
 h1 {
@@ -102,9 +92,9 @@ h6 {
 // объявляем локальную переменную для внешнего отступа вниз,
 // чтобы избежать взаимодействие с более сложным селектором 
 p {
-  --paragraphMarginBottom: #{variables.$PARAGRAPH_MARGIN_BOTTOM};
+  --paragraphMarginBottom: #{functions.toRem(variables.$PARAGRAPH_MARGIN_BOTTOM)};
 
-  @extend %margin-block-0;
+  @extend %margin-block-0 !optional;
 
   // Внешний отступ вниз для параграфа без атрибута class,
   // который расположен не последним среди своих соседних элементов 
@@ -123,19 +113,15 @@ p {
 
 // Убираем внешние отступы тегам у которых есть атрибут class 
 :where(blockquote, figure):where([class]) {
-  @extend %margin-block-0;
-  @extend %margin-inline-0;
+  @extend %margin-inline-0 !optional;
 
 }
 
 
 // Убираем внешние отступы вертикали нужным тегам,
 // у которых есть атрибут class
-:where(p,
-  ul,
-  ol,
-  dl):where([class]) {
-  @extend %margin-block-0;
+:where(p, h1, h2, h3, h4, h5, h6 ul, ol, dl, blockquote, figure):where([class]) {
+  @extend %margin-block-0 !optional;
 }
 
 :where(dd[class]) {
@@ -163,11 +149,11 @@ p {
 // Упрощаем работу с изображениями и видео 
 img,
 video {
-  @extend %img;
+  @extend %img !optional;
 }
 
 svg {
-  @extend %img;
+  @extend %img !optional;
 
   // Чиним баг задержки смены цвета при взаимодействии с svg-элементами 
   * {
@@ -192,16 +178,12 @@ button {
   font: inherit;
 }
 
-
 // Нормализация высоты элемента ссылки при его инспектировании в DevTools
-
 a:where([class]) {
   display: inline-flex;
 }
 
-
 // Курсор-рука при наведении на элемент
-
 button,
 label {
   cursor: pointer;
@@ -215,19 +197,5 @@ label {
 
 // Плавный скролл
 :has(:target) {
-  @extend %scroll-behavior;
-}
-
-// Удаляем все анимации и переходы для людей,
-// которые предпочитают их не использовать 
-@media (prefers-reduced-motion: reduce) {
-
-  *,
-  ::before,
-  ::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
+  @extend %scroll-behavior !optional;
 }

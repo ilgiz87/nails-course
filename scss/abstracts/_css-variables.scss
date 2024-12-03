@@ -1,0 +1,15 @@
+@use "functions";
+@use "mixins";
+@use "variables";
+
+@use "sass:color";
+
+:root {
+    @include mixins.normalize-root();
+    --accent-color: #{ variables.$accent-color};
+    --accent-light-color: #{color.adjust(variables.$accent-color, $lightness: 8.25%)};
+    --accent-dark-color: #{color.adjust(color.adjust(variables.$accent-color, $lightness: -55%), $saturation: -72%)};
+
+    --container-max-width: #{functions.toRem(variables.$container-max-width)};
+    --container-padding-x: #{functions.toRem(variables.$container-padding-x)};
+  }
