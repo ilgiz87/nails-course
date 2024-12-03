@@ -1,11 +1,14 @@
+@use 'sass:math';
 @use "sass:meta";
 @use "variables";
 
-@use 'sass:math';
+
 
 // Удаление едениц измерения
 @function strip-units($number) {
+
   @if meta.type-of($number)=='number' and not math.is-unitless($number) {
+
     @return math.div($number, $number * 0 + 1);
   }
 
@@ -37,6 +40,7 @@
   @else {
     $slope: math.div($max - $min, variables.$VIEWPORT-MAX - variables.$VIEWPORT-MIN);
     $yAxisIntersection: math.div(-(variables.$VIEWPORT-MIN) * $slope + $min, variables.$BASE_FONT_SIZE);
+
 
     $clampMin: toRem($min);
     $clampVal: calc(#{rounding(strip-units($yAxisIntersection), 1000)}rem + #{rounding($slope * 100)}vw);

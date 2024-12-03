@@ -1,6 +1,6 @@
 :root {
-  --body-text-color: #f8f6f3;
-  --body-bg-color: #12100e;
+  --body-text-color: rgb(248.16, 245.728, 242.84);
+  --body-bg-color: rgb(18.4, 16.2057142857, 13.6);
   --body-font-family: Onest, sans-serif;
   --body-font-weight: 400;
   --body-font-size: 1rem;
@@ -15,8 +15,8 @@
   --h5-font-size: clamp(1rem, 0.959rem + 0.19vw, 1.125rem);
   --h6-font-size: 1rem;
   --accent-color: #ffdfb9;
-  --accent-light-color: #fff2e3;
-  --accent-dark-color: #665239;
+  --accent-light-color: rgb(255, 242.2342857143, 227.075);
+  --accent-dark-color: rgb(102.08, 81.664, 57.42);
   --container-max-width: 75rem;
   --container-padding-x: 1.25rem;
 }
@@ -161,8 +161,7 @@ label {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  -moz-column-gap: 0.5em;
-       column-gap: 0.5em;
+  column-gap: 0.5em;
   border-radius: 2.5rem;
   padding-block: 2em;
   padding-inline: 3em;
@@ -242,8 +241,7 @@ label {
   left: 0;
   height: 100%;
   width: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 .intro__container {
   display: grid;
@@ -272,12 +270,11 @@ label {
 }
 .intro__item {
   font-size: clamp(0.625rem, 0.53rem + 0.4vw, 0.875rem);
-  background-color: rgba(248, 246, 243, 0.1);
+  background-color: rgba(248.16, 245.728, 242.84, 0.1);
   padding: 1em;
   border-radius: 1em;
   display: grid;
-  -moz-column-gap: 0.8em;
-       column-gap: 0.8em;
+  column-gap: 0.8em;
   grid-template-columns: 3em 1fr;
   align-items: center;
 }
@@ -293,8 +290,7 @@ label {
 }
 .intro__item--caps {
   background-color: rgba(18, 16, 14, 0.3);
-  -webkit-backdrop-filter: blur(25px);
-          backdrop-filter: blur(25px);
+  backdrop-filter: blur(25px);
 }
 .intro__title {
   position: relative;
@@ -394,7 +390,7 @@ label {
   }
 }
 .benefits__training {
-  --gradientStartColor: #201d19;
+  --gradientStartColor: rgb(32.2, 29.0457142857, 25.3);
   --gradientDeg: 190deg;
   background: linear-gradient(var(--gradientDeg), var(--gradientStartColor) 0%, var(--body-bg-color) 90%);
   border-radius: 2rem;
@@ -427,7 +423,7 @@ label {
 }
 .benefits__item {
   --borderRadius: 20px;
-  --gradientStartColor: #201d19;
+  --gradientStartColor: rgb(32.2, 29.0457142857, 25.3);
   --gradientDeg: 140deg;
   background: linear-gradient(var(--gradientDeg), var(--gradientStartColor) 0%, var(--body-bg-color) 90%);
   display: flex;
@@ -513,4 +509,6 @@ label {
   display: flex;
 }
 
-/*  footer  *//*# sourceMappingURL=main.css.map */
+/*  footer  */
+
+/*# sourceMappingURL=main.css.map */

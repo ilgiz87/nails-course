@@ -21,7 +21,7 @@
 }
 
 html {
- @extend %box-sizing !optional;
+  @extend %box-sizing !optional;
   @extend %scroll-behavior !optional;
 
   min-height: 100%;
@@ -33,7 +33,7 @@ html {
 
 
 body {
- @extend %box-sizing !optional;
+  @extend %box-sizing !optional;
   @extend %margin-block-0 !optional;
   @extend %margin-inline-0 !optional;
 
@@ -114,7 +114,6 @@ p {
 // Убираем внешние отступы тегам у которых есть атрибут class 
 :where(blockquote, figure):where([class]) {
   @extend %margin-inline-0 !optional;
-
 }
 
 
