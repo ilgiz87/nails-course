@@ -3,11 +3,8 @@
 @use "variables";
 
 
-
 // Удаление едениц измерения
 @function strip-units($number) {
-
-
   @if meta.type-of($number)=='number' and not math.is-unitless($number) {
 
     @return math.div($number, $number * 0 + 1);
@@ -26,9 +23,7 @@
 @function toRem($pixel) {
   @if math.is-unitless($pixel) {
     @return #{rounding(math.div($pixel, variables.$BASE_FONT_SIZE), 1000)}rem;
-  }
-
-  @else {
+  } @else {
     @error 'Не используйте единицы измерения при работе с функцией toRem()! Передавайте аргументом только числа.'
   }
 }
@@ -36,8 +31,7 @@
 @function clamp1($min, $max) {
   @if $min ==$max {
     @return toRem($max);
-  }
-  @else {
+  } @else {
     $slope: math.div($max - $min, variables.$VIEWPORT-MAX - variables.$VIEWPORT-MIN);
     $yAxisIntersection: math.div(-(variables.$VIEWPORT-MIN) * $slope + $min, variables.$BASE_FONT_SIZE);
 

@@ -4,7 +4,6 @@
 @use "variables";
 
 
-
 @mixin normalize-root() {
   --body-text-color: #{variables.$body-text-color};
   --body-bg-color: #{variables.$body-bg-color};
@@ -49,13 +48,13 @@
 }
 
 @mixin hover {
-  @media (hover:hover) {
+  @media (hover: hover) {
     &:hover {
       @content;
     }
   }
 
-  @media (hover:none) {
+  @media (hover: none) {
     &:active {
       @content;
     }

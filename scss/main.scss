@@ -1,5 +1,3 @@
-
-
 @use 'abstracts/breakpoints';
 @use 'abstracts/variables';
 @use 'abstracts/functions';
@@ -19,4 +17,4 @@
 @use 'layout/footer';
 
 // Файл для эксперементов и костылей
-@import 'components/shame';
+@use 'components/shame';
