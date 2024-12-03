@@ -1,20 +1,22 @@
-@import 'abstracts/breakpoints',
-'abstracts/variables',
-'abstracts/functions',
 
-'abstracts/mixins',
-'abstracts/placeholders',
-'abstracts/css-variables',
-'abstracts/normalize';
 
-@import 'components/utils',
-'components/buttons',
-'components/social';
+@use 'abstracts/breakpoints';
+@use 'abstracts/variables';
+@use 'abstracts/functions';
+@use 'abstracts/mixins';
+@use 'abstracts/placeholders';
+@use 'components/fonts';
+@use 'abstracts/css-variables';
+@use 'abstracts/normalize';
 
-@import 'layout/header',
-'layout/intro',
-'layout/benefits',
-'layout/footer';
+@use 'components/utils';
+@use 'components/buttons';
+@use 'components/social';
+
+@use 'layout/header';
+@use 'layout/intro';
+@use 'layout/benefits';
+@use 'layout/footer';
 
 // Файл для эксперементов и костылей
 @import 'components/shame';

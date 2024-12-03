@@ -1,3 +1,7 @@
+
+@use "functions";
+@use "variables";
+
 // Нормализация блочной модели
 
 *,
@@ -18,8 +22,8 @@
 }
 
 html {
-  @extend %box-sizing;
-  @extend %scroll-behavior;
+  @extend %box-sizing !optional;
+  @extend %scroll-behavior !optional;
 
   min-height: 100%;
 
@@ -30,9 +34,9 @@ html {
 
 
 body {
-  @extend %box-sizing;
-  @extend %margin-block-0;
-  @extend %margin-inline-0;
+  @extend %box-sizing !optional;
+  @extend %margin-block-0 !optional;
+  @extend %margin-inline-0 !optional;
 
   height: 100%;
 
@@ -89,9 +93,9 @@ h6 {
 // объявляем локальную переменную для внешнего отступа вниз,
 // чтобы избежать взаимодействие с более сложным селектором 
 p {
-  --paragraphMarginBottom: #{toRem($PARAGRAPH_MARGIN_BOTTOM)};
+  --paragraphMarginBottom: #{functions.toRem(variables.$PARAGRAPH_MARGIN_BOTTOM)};
 
-  @extend %margin-block-0;
+  @extend %margin-block-0 !optional;
 
   // Внешний отступ вниз для параграфа без атрибута class,
   // который расположен не последним среди своих соседних элементов 
@@ -110,15 +114,14 @@ p {
 
 // Убираем внешние отступы тегам у которых есть атрибут class 
 :where(blockquote, figure):where([class]) {
-  @extend %margin-inline-0;
-
+  @extend %margin-inline-0 !optional;
 }
 
 
 // Убираем внешние отступы вертикали нужным тегам,
 // у которых есть атрибут class
 :where(p, h1, h2, h3, h4, h5, h6 ul, ol, dl, blockquote, figure):where([class]) {
-  @extend %margin-block-0;
+  @extend %margin-block-0 !optional;
 }
 
 :where(dd[class]) {
@@ -146,11 +149,11 @@ p {
 // Упрощаем работу с изображениями и видео 
 img,
 video {
-  @extend %img;
+  @extend %img !optional;
 }
 
 svg {
-  @extend %img;
+  @extend %img !optional;
 
   // Чиним баг задержки смены цвета при взаимодействии с svg-элементами 
   * {
@@ -194,5 +197,5 @@ label {
 
 // Плавный скролл
 :has(:target) {
-  @extend %scroll-behavior;
+  @extend %scroll-behavior !optional;
 }

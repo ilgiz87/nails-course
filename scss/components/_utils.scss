@@ -1,4 +1,5 @@
-
+@use "../abstracts/functions";
+@use "../abstracts/mixins";
 
 .section {
   padding-block: var(--section-padding-block);
@@ -25,10 +26,12 @@
   align-items: center;
   justify-content: center;
   column-gap: 0.5em;
-  border-radius:  toRem(40);
+
+  border-radius: functions.toRem(40);
   padding-block: 2em;
   padding-inline: 3em;
-  font-size:  toRem(14);
+  font-size: functions.toRem(14);
+
   font-weight: 700;
   line-height: 1;
   text-transform: uppercase;
@@ -42,7 +45,8 @@
   letter-spacing: 0.1em;
   box-shadow: 0 .25em 0 0 var(--accent-dark-color);
 
-  @include  hover {
+  @include mixins.hover {
+
     // --btnColor: var(--black-color, #111);
     --btnBg: linear-gradient(48deg, var(--accent-color) 10%, var(--accent-light-color) 50%, var(--accent-color) 90%);
     // --btnBorderColor: var(--btnColor);

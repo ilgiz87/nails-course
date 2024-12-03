@@ -1,9 +1,11 @@
+
 @use "sass:color";
 
 $accent-color: #ffdfb9;
 
 $container-max-width: 1200;
 $container-padding-x: 20;
+
 
 // НЕ УДАЛЯТЬ используются в "_functions.scss" 
 // для расчета  toRem() и clamp1($min, $max) 
@@ -14,7 +16,9 @@ $VIEWPORT-MIN: 360;
 
 // Внешний отступ вниз для параграфа без атрибута class,
 // который расположен не последним среди своих соседних элементов 
+
 $PARAGRAPH_MARGIN_BOTTOM: 24;
+
 
 // Базовые настройки для normalize.scss
 $body-text-color: color.adjust(color.adjust($accent-color, $lightness: 10%), $saturation: -72%);

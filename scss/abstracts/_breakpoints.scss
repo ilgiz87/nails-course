@@ -1,3 +1,4 @@
+@use "functions";
 
 // Extra small
 $screen-xs: 576;
@@ -19,73 +20,92 @@ $screen-xl: 1200;
 $screen-xxl: 1400;
 
 @mixin media-up-xs {
-    @media (min-width: #{ toRem($screen-xs)}) {
-        @content;
-    }
+
+  @media (min-width: #{ functions.toRem($screen-xs)}) {
+
+    @content;
+  }
 }
 
 @mixin media-xs {
-    @media (max-width: #{ toRem($screen-xs - 0.02)}) {
-        @content;
-    }
+  @media (max-width: #{ functions.toRem($screen-xs - 0.02)}) {
+    @content;
+  }
 }
 
 @mixin media-up-sm {
-    @media (min-width: #{ toRem($screen-sm)}) {
-        @content;
-    }
+
+  @media (min-width: #{ functions.toRem($screen-sm)}) {
+
+    @content;
+  }
 }
 
 @mixin media-sm {
-    @media (max-width: #{ toRem($screen-sm - 0.02)}) {
-        @content;
-    }
+
+  @media (max-width: #{ functions.toRem($screen-sm - 0.02)}) {
+
+    @content;
+  }
 }
 
 @mixin media-up-md {
-    @media (min-width: #{ toRem($screen-md )}) {
-        @content;
-    }
+
+  @media (min-width: #{ functions.toRem($screen-md )}) {
+
+    @content;
+  }
 }
 
 @mixin media-md {
-    @media (max-width: #{ toRem($screen-md - 0.02)}) {
-        @content;
-    }
+
+  @media (max-width: #{ functions.toRem($screen-md - 0.02)}) {
+
+    @content;
+  }
 }
 
 @mixin media-up-lg {
-    @media (min-width: #{ toRem($screen-lg )}) {
-        @content;
-    }
+  @media (min-width: #{ functions.toRem($screen-lg )}) {
+
+    @content;
+  }
 }
 
 @mixin media-lg {
-    @media (max-width: #{ toRem($screen-lg - 0.02)}) {
-        @content;
-    }
+  @media (max-width: #{ functions.toRem($screen-lg - 0.02)}) {
+
+    @content;
+  }
 }
 
 @mixin media-up-xl {
-    @media (min-width: #{ toRem($screen-xl )}) {
-        @content;
-    }
+
+  @media (min-width: #{ functions.toRem($screen-xl )}) {
+
+    @content;
+  }
 }
 
 @mixin media-xl {
-    @media (max-width: #{ toRem($screen-xl - 0.02)}) {
-        @content;
-    }
+
+  @media (max-width: #{ functions.toRem($screen-xl - 0.02)}) {
+
+    @content;
+  }
 }
 
 @mixin media-up-xxl {
-    @media (min-width: #{ toRem($screen-xxl)} ) {
-        @content;
-    }
+
+  @media (min-width: #{ functions.toRem($screen-xxl)}) {
+
+    @content;
+  }
 }
 
 @mixin media-xxl {
-    @media (max-width: #{ toRem($screen-xxl - 0.02)}) {
-        @content;
-    }
+  @media (max-width: #{ functions.toRem($screen-xxl - 0.02)}) {
+
+    @content;
+  }
 }
